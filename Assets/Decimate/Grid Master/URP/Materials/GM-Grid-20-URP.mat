@@ -77,5 +77,5 @@ Material:
     - _Tiling: 1
     m_Colors:
     - _Base_Color: {r: 0.2735849, g: 0.2735849, b: 0.2735849, a: 0}
-    - _Emission_Color: {r: 6.88318, g: 3.1457925, b: 0, a: 0}
+    - _Emission_Color: {r: 4.8548746, g: 3.3852954, b: 2.1297326, a: 0}
   m_BuildTextureStacks: []
