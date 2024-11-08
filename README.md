@@ -87,4 +87,209 @@ Lorsque vous manipulez ces contrôles, les valeurs du composant Transform change
 > [!TIP]
 > Utilisez le raccourcis Ctrl+Shift+B pour ouvrir rapidement les Build Settings
 
+## Prefabs
+
+Un Prefab agit comme un modèle à partir duquel vous pouvez créer de nouvelles instances préfabriquées d'un GameObject dans la scène. 
+Cela vous permet de créer, configurer et stocker un GameObject complet avec tous ses composants, valeurs de propriété et enfants en tant qu'asset réutilisable.
+
+### Créer un Prefab
+> [!NOTE]
+> Plus de détails dans le [manuel](https://docs.unity3d.com/Manual/CreatingPrefabs.html)
+
+Faites glisser un GameObject de la fenêtre Hierarchy vers la fenêtre Project.
+Le GameObject, ainsi que tous ses composants et enfants, deviennent un nouvel Asset dans votre fenêtre Project. 
+
+> [!TIP]
+> Ce processus de création du Prefab transforme également le GameObject d'origine en une instance du nouveau Prefab.
+
+Les Prefabs dans la fenêtre Project sont affichés avec une vue miniature du GameObject ou l'icône Prefab en forme de cube bleu en fonction de la manière dont vous avez paramétré l'affichage.
+
+![Image d'illustration](https://docs.unity3d.com/uploads/Main/PrefabsInProjectWindow1.png)
+	
+Toutes les modifications sont automatiquement répercutées dans les instances du Prefab modifié. 
+Cela permet des changements à l'échelle du projet sans avoir à effectuer à plusieurs reprises la même modification sur chaque copie de l'élément.
+
+Vous pouvez remplacer les paramètres des instances de Prefab individuelles si vous souhaitez que certaines instances d'un Prefab diffèrent des autres. 
+Vous pouvez également créer des variantes de Prefab qui vous permettent de regrouper un ensemble de remplacements dans une variation significative d'un Prefab appelée Prefab Variant.
+
+### Modifier un Prefab
+> [!NOTE]
+> Plus de détails dans le [manuel](https://docs.unity3d.com/Manual/EditingInPrefabMode.html)
+
+Ouvrez-le dans le Prefab Mode en cliquant sur la flèche à droite de son nom dans la scène.
+Ou en double-cliquant sur le Prefab dans la fenêtre Project.
+
+![Image d'illustration](https://docs.unity3d.com/uploads/Main/PrefabHierarchyOpenArrow.png)
+
+Ce mode vous permet d'afficher et de modifier le contenu du Prefab séparément de tout autre GameObject dans votre scène. 
+Les modifications que vous effectuez dans le Prefab Mode affectent toutes les instances de ce Prefab.
+
+![Image d'illustration](https://docs.unity3d.com/uploads/Main/PrefabContextVsIsolation.png)
+
+En Prefab Mode, la vue Scene affiche une barre de navigation en haut. 
+L'entrée la plus à droite correspond au Prefab actuellement ouvert. 
+Utilisez la barre de navigation pour revenir aux scènes principales ou aux autresPrefabs que vous avez peut-être ouvertes en naviguant la hiérarchie.
+
+### Prefab Variants
+> [!NOTE]
+> Plus de détails dans le [manuel](https://docs.unity3d.com/Manual/PrefabVariants.html)
+
+Une variante de Prefab hérite des propriétés d'un autre Prefab, appelée la base. 
+Les modifications apportés à la variante de Prefab ont priorité sur les valeurs de la base. 
+Une variante de Prefab peut avoir n'importe quelle autre Prefab comme base, y compris les Prefab de modèle ou d'autres variantes de Prefab.
+
+Les Prefab Variant sont affichées avec l'icône préfabriquée bleue décorée de flèches.
+
+![Image d'illustration](https://docs.unity3d.com/uploads/Main/PrefabsBasicAndVariant.png)
+
+Cliquez avec le bouton droit sur un Prefab dans la vue Project et sélectionner Create > Prefab Variant. 
+Cela crée une variante du Prefab sélectionné, qui ne comporte initialement aucune substitution. 
+Vous pouvez ouvrir la variante de Prefab dans le Prefab Mode pour commencer à y ajouter des substitutions.
+
+Vous pouvez également faire glisser une instance de Prefab de la **Hierarchy** vers la fenêtre **Project**. 
+Une boîte de dialogue vous demande si vous souhaitez créer un nouveau Prefab ou un Prefab Variant. 
+Si vous choisissez Prefab Variant, vous obtenez une nouvelle variante basée sur l'instance de Prefab que vous avez fait glisser. 
+Toutes les substitutions que vous aviez sur cette instance se trouvent désormais à l'intérieur de la nouvelle variante. 
+Vous pouvez l'ouvrir dans le Prefab Mode pour ajouter des substitutions supplémentaires ou pour modifier ou supprimer des substitutions.
+
+## Créer un nouveau script
+> [!NOTE]
+> Plus de détails dans le [manuel](https://docs.unity3d.com/Manual/CreatingAndUsingScripts.html)
+
+- À partir du menu Créer en haut à gauche du panneau Projet
+- À partir du menu contextuel (clic droit) Create / C# Script
+- En sélectionnant Assets > Create > C# Script dans le menu principal
+
+> [!TIP]
+> Lorsque vous créez un script C# à partir de la fenêtre de projet d’Unity, il hérite automatiquement de [MonoBehaviour](https://docs.unity3d.com/Manual/class-MonoBehaviour.html) et vous fournit un template.
+
+## Ajouter un nouveau component
+> [!NOTE]
+> Plus de détails dans le [manuel](https://docs.unity3d.com/Manual/UsingComponents.html)
+
+Une fois sélectionné le GameObject
+- À partir du menu Component si il s'agit d'un composant natif
+- Par le Component Browser dans l'inspecteur
+
+## Input System
+> [!NOTE]
+> Plus de détails dans le [manuel](https://docs.unity3d.com/Packages/com.unity.inputsystem@1.11/manual/index.html)
+
+Obtenir un Input directement à partir d'un périphérique d'entrée est rapide et pratique, mais nécessite un chemin distinct pour chaque type de périphérique.
+Cela rend également plus difficile de modifier ultérieurement le contrôle du périphérique qui déclenche un événement spécifique dans le jeu.
+
+À la place il est possible d'utiliser les actions comme intermédiaire entre les Inputs des périphériques et les réponses qu'ils déclenchent.
+Le moyen le plus simple est d'utiliser le composant PlayerInput sur le GameObject d'un joueur. 
+
+> [!IMPORTANT]
+> Chaque PlayerInput représente un joueur différent dans le jeu.
+
+### Modifier un asset Input Action
+
+Pour afficher l'éditeur d'actions
+- double-cliquez sur un élément .inputactions dans le navigateur de projet
+- ou sélectionnez le bouton Modifier l'élément dans l'inspecteur de cet élément
+
+L'éditeur d'actions apparaît sous la forme d'une fenêtre distincte, que vous pouvez également ancrer dans l'interface  pour ne pas avoir à accéder à l'asset systématiquement.
+
+![Image d'illustration](https://docs.unity3d.com/Packages/com.unity.inputsystem@1.11/manual/images/ActionsEditorCallout.png)
+
+> [!CAUTION]
+> Par défaut, Unity n'enregistre pas les modifications que vous effectuez dans l'éditeur d'actions lorsque vous enregistrez le projet.
+> Pour enregistrer vos modifications, sélectionnez Save Asset dans la barre d'outils de la fenêtre.
+> Ou bien activez l'enregistrement automatique en activant la case à cocher Auto Save dans la barre d'outils.
+
+## Collider Interactions
+> [!NOTE]
+> Plus de détails dans le [manuel](https://docs.unity3d.com/Manual/collider-interactions.html)
+
+Lorsque deux Colliders entrent en contact, vous pouvez appeler des fonctions pour déclencher d'autres événements dans votre projet via des scripts.
+
+> [!CAUTION]
+> Les événements Collider nécessitent une configuration via un script C# ; vous ne pouvez pas les configurer en utilisant uniquement l'interface utilisateur.
+
+#### Collision events
+Ces événements se produisent lorsque deux Colliders entrent en contact et qu'aucun des collisionneurs n'a la fonction Déclencheur activée.
+
+#### Trigger events 
+Ces événements se produisent lorsque deux Colliders entrent en contact, qu'au moins un Collider a l'option IsTrigger activée et qu'au moins un Collider a un Rigidbody ou ArticulationBody.
+
+### OnCollision events
+
+Le travail avec les événements de collision implique principalement les fonctions API suivantes :
+
+[Collider.OnCollisionEnter](https://docs.unity3d.com/ScriptReference/Collider.OnCollisionEnter.html) : Appelée sur chaque GameObject lorsque deux Colliders entrent en contact pour la première fois.
+
+[Collider.OnCollisionStay](https://docs.unity3d.com/ScriptReference/Collider.OnCollisionStay.html) : Appelée sur chaque GameObject une fois par mise à jour physique lorsque deux Colliders sont en contact.
+
+[Collider.OnCollisionExit](https://docs.unity3d.com/ScriptReference/Collider.OnCollisionExit.html) : Appelée sur chaque GameObject lorsque deux Colliders cessent le contact.
+
+> [!CAUTION]
+> Pour les Collision events, au moins un des objets impliqués doit avoir un corps physique dynamique (c'est-à-dire un Rigidbody ou un ArticulationBody dont l'option IsKinematic est désactivée). 
+
+> [!WARNING]
+> Si les deux GameObjects d'une collision sont des corps physiques Kinematic, la collision n'appelle pas les fonctions OnCollision.
+
+### OnTrigger events
+
+Les Triggers Colliders ne provoquent pas de collisions. 
+Au lieu de cela, ils détectent les autres **Colliders** qui les traversent et appellent des fonctions que vous pouvez utiliser pour déclencher des événements.
+
+L'utilisation de Trigger Collider implique principalement les fonctions API suivantes :
+
+[Collider.OnTriggerEnter](https://docs.unity3d.com/ScriptReference/Collider.OnTriggerEnter.html) : Appelée sur un GameObject qui possède un Collider en mode IsTrigger lorsqu'il entre en contact pour la première fois avec un autre Collider.
+
+[Collider.OnTriggerStay](https://docs.unity3d.com/ScriptReference/Collider.OnTriggerStay.html) : Appelée sur un GameObject qui possède un Collider en mode IsTrigger une fois par image s'il détecte un autre Collider à l'intérieur de ses limites.
+
+[Collider.OnTriggerExit](https://docs.unity3d.com/ScriptReference/Collider.OnTriggerExit.html) : Appelée sur un GameObject qui possède un Collider en mode IsTrigger lorsqu'il cesse le contact avec un autre Collider.
+
+### Créer et configurer un Trigger Collider
+
+1. Créez un GameObject
+	- Pour créer un Trigger Collider invisible, créez un GameObject vide. Dans la plupart des cas, ces colliders sont invisibles.
+	- Pour créer un Trigger Collider visible, créez un GameObject doté d'un Mesh. Ce type de Collider n'a besoin d'être visible que s'il est possible pour d'autres GameObjects de le traverser de manière visible pendant le jeu.
+2. Ajoutez un composant Collider au GameObject
+3. Configurez le Collider comme un Trigger:
+	- En éditeur, affichez l'inspecteur du Collider en question et cochez la propriété IsTrigger
+	- En script, modifiez la propriété IsTrigger avec la valeur true
+
+# Animations
+## Quelques définitions
+
+### Modèle 3D
+Un modèle maillé 3D est un modèle numérique de surface qui représente numériquement un objet en 3D. Le modèle se compose de sommets(vertices), d'arêtes et d'éléments individuels(polygons).
+
+Les sommets sont utilisés comme coordonnées et les arêtes du modèle relient respectivement deux sommets voisins. Les faces (polygones) englobent les arêtes et forment ainsi la surface de l'objet.
+
+Les polygones les plus souvent utilisés sont les triangles et les quadrilatères. La composition de ces coordonnées, arêtes et polygones constitue le modèle de maillage 3D.
+
+### Rig
+Un rig est constitué d'une série d'articulations qui imitent la structure osseuse réelle et fournissent des points de pivot naturels entre les os. Le maillage du personnage est relié aux articulations par un processus appelé peinture pondérée, de sorte que les articulations et le maillage se déplacent ensemble.
+
+> [!NOTE]
+> Pour aller plus loin suivez ce [tutorial](https://learn.unity.com/tutorial/intro-to-unity-rigs#)
+
+### Animation
+Une série de transformations appliquées à chaque frame ou interpoler entre deux frames.
+
+## Animer un objet
+1. Sélectionner l'objet à animer
+2. Ouvrir l'onglet "Animation"
+3. Créer un nouvel animation clip (crée automatiquement un Animator et ajoute le composant sur l'objet)
+
+## Animator
+> [!NOTE]
+> Plus de détails dans le [manuel](https://docs.unity3d.com/Manual/class-AnimatorController.html)
+
+Un graph définissant les états possible d'un objet.
+Chaque état défini une animation à jouer.
+On définit des transitions pour passer d'un état à un autre.
+
+![Image d'illustration](https://docs.unity3d.com/uploads/Main/MecanimAnimatorControllerWindow.png)
+
+
+
+
+
+
 
